@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import ThemeProvider from './common/theme/Theme';
 
@@ -7,9 +8,10 @@ const TestStyleComponent = styled.div`
 `;
 
 function App() {
+    const { t: translate } = useTranslation();
     return (
         <ThemeProvider>
-            <TestStyleComponent>asd</TestStyleComponent>
+            <TestStyleComponent>{translate('message')}</TestStyleComponent>
         </ThemeProvider>
     );
 }
