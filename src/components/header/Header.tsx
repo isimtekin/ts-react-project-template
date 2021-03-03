@@ -24,7 +24,7 @@ const Header = () => {
                 <Grid item>
                     <Grid container>
                         <Grid item>
-                            <Profile user={user} />
+                            <Profile name={user?.name} />
                         </Grid>
                         <Grid item>
                             {isAuthenticated && (

@@ -1,11 +1,11 @@
+import { memo } from 'react';
 export interface ProfileProps {
-    user: {
-        name?: string;
-    };
+    name?: string;
 }
 
-const Profile = ({ user }: ProfileProps) => {
-    return <div>{user?.name}</div>;
+const Profile = ({ name }: ProfileProps) => {
+    console.log('profile', 'render!');
+    return <div>{name}</div>;
 };
 
-export default Profile;
+export default memo(Profile);
