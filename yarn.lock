@@ -3067,6 +3067,13 @@
   resolved "https://registry.yarnpkg.com/@types/unist/-/unist-2.0.3.tgz#9c088679876f374eb5983f150d4787aa6fb32d7e"
   integrity sha512-FvUupuM3rlRsRtCN+fDudtmytGO6iHJuuRKS1Ss0pG5z8oX0diNEw94UEL7hgDbpN94rgaK5R7sWm6RrSkZuAQ==
 
+"@types/use-global-hook@^0.1.3":
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/@types/use-global-hook/-/use-global-hook-0.1.3.tgz#9f7ed7223cff20b38a5167fdcc73f803867f0864"
+  integrity sha512-IWlIgSwW5ZinX+CJ4xzClwZb28dKhcq+ZN7MITzuumaF4DCihpGP+aphaBOvtEvc/LvFynnC+m3Ge2/XKBjDKA==
+  dependencies:
+    immer "^7.0.7"
+
 "@types/webpack-env@^1.15.3":
   version "1.16.0"
   resolved "https://registry.yarnpkg.com/@types/webpack-env/-/webpack-env-1.16.0.tgz#8c0a9435dfa7b3b1be76562f3070efb3f92637b4"
@@ -8080,6 +8087,11 @@ immer@8.0.1:
   resolved "https://registry.yarnpkg.com/immer/-/immer-8.0.1.tgz#9c73db683e2b3975c424fb0572af5889877ae656"
   integrity sha512-aqXhGP7//Gui2+UrEtvxZxSquQVXTpZ7KDxfCcKAF3Vysvw0CViVaW9RZ1j1xlIYqaaaipBoqdqeibkc18PNvA==
 
+immer@^7.0.7:
+  version "7.0.15"
+  resolved "https://registry.yarnpkg.com/immer/-/immer-7.0.15.tgz#dc3bc6db87401659d2e737c67a21b227c484a4ad"
+  integrity sha512-yM7jo9+hvYgvdCQdqvhCNRRio0SCXc8xDPzA25SvKWa7b1WVPjLwQs1VYU5JPXjcJPTqAa5NP5dqpORGYBQ2AA==
+
 import-cwd@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/import-cwd/-/import-cwd-2.1.0.tgz#aa6cf36e722761285cb371ec6519f53e2435b0a9"
@@ -12108,6 +12120,11 @@ react-helmet-async@^1.0.2:
     react-fast-compare "^3.2.0"
     shallowequal "^1.1.0"
 
+react-hooks-global-state@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/react-hooks-global-state/-/react-hooks-global-state-1.0.1.tgz#3e4e1009f3e8a6fd001cd507808b4f1b289e9b27"
+  integrity sha512-GFe/7KOdf8toByd8eF5LBhogMn65XSyghIzInsnA1e8vqIxGdT2Ohs2Ohdclp8CX0QU9xNj72ZIt+WD/SQEh9Q==
+
 react-hotkeys@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/react-hotkeys/-/react-hotkeys-2.0.0.tgz#a7719c7340cbba888b0e9184f806a9ec0ac2c53f"
@@ -14485,6 +14502,16 @@ use-composed-ref@^1.0.0:
   integrity sha512-my1lNHGWsSDAhhVAT4MKs6IjBUtG6ZG11uUqexPH9PptiIZDQOzaF4f5tEbJ2+7qvNbtXNBbU3SfmN+fXlWDhg==
   dependencies:
     ts-essentials "^2.0.3"
+
+use-global-hook-ts@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/use-global-hook-ts/-/use-global-hook-ts-1.1.2.tgz#80f8c18dc0d1c96daaca9b90d259d615f42229bc"
+  integrity sha512-47x5Ue7z8lw1o5by7lDNKoBP813JK6eL3UjkaBZe/noViIZLJBC1cjgZr+zbhCuuQh51+eIUGug/0NR8Bx/yDQ==
+
+use-global-hook@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/use-global-hook/-/use-global-hook-0.2.1.tgz#3b10eee41946dce8f951926c2f478a0f8b1a8cfd"
+  integrity sha512-rLxSGHluN0bOaHG6PiuY/QSElNZM/kc7gnyr7065BC4Pw5zHRZf+a91tbGoDdoF5ZIV0OdS3Gn/bTQEFvFZCxw==
 
 use-isomorphic-layout-effect@^1.0.0:
   version "1.1.1"
