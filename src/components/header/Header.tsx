@@ -13,8 +13,8 @@ const HeaderStyled = styled.header`
 export interface HeaderProps {}
 
 const Header = () => {
-    const { user, logout, isAuthenticated } = useAuth0();
-    console.log(user);
+    const { logout, isAuthenticated, user } = useAuth0();
+
     return (
         <HeaderStyled>
             <Grid container justify="space-between">
@@ -24,7 +24,7 @@ const Header = () => {
                 <Grid item>
                     <Grid container>
                         <Grid item>
-                            <Profile />
+                            <Profile user={user} />
                         </Grid>
                         <Grid item>
                             {isAuthenticated && (
