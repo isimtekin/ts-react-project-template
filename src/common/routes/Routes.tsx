@@ -1,18 +1,16 @@
-import { createBrowserHistory } from 'history';
+import Auth0ProviderWithHistory from 'common/auth/Auth0ProviderWithHistory';
+import { HomePageProps } from 'pages/home/HomePage';
 import React, { Fragment, Suspense } from 'react';
-import { Route, Router, Switch } from 'react-router-dom';
-import { HomePageProps } from '../../pages/home/HomePage';
-import { routesConfig } from './routeConfig';
+import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 
-export const history = createBrowserHistory();
+import { routesConfig } from './routeConfig';
 
 export interface IRoute {
     exact?: boolean;
     path: string;
-    component: any;
+    component?: any;
     layout?: any;
     guard?: any;
-    guardOptions?: any;
     routes?: IRoute[];
 }
 
@@ -20,45 +18,48 @@ type PageTypes = HomePageProps;
 
 const renderRoutes = (routes: IRoute[]) =>
     routes ? (
-        <Switch>
-            {routes.map((route, i) => {
-                const Guard = route.guard || Fragment;
-                const Layout = route.layout || Fragment;
-                const Component = route.component;
-                const guardOptions: any = {};
+        <Suspense fallback={<div>loading...</div>}>
+            <Switch>
+                {routes.map((route, i) => {
+                    const Guard = route.guard || Fragment;
+                    const Layout = route.layout || Fragment;
+                    const Component = route.component || Fragment;
 
-                if (route?.guard) {
-                    guardOptions.options = route.guardOptions;
-                }
+                    const renderContent = (props: PageTypes) => {
+                        return route.routes ? (
+                            <Component {...props}>
+                                {renderRoutes(route.routes)}
+                            </Component>
+                        ) : (
+                            <Component {...props} />
+                        );
+                    };
 
-                const renderContent = (props: PageTypes) => {
-                    return route.routes ? (
-                        renderRoutes(route.routes)
-                    ) : (
-                        <Component {...props} />
-                    );
-                };
-
-                return (
-                    <Suspense fallback={<div>loading...</div>}>
+                    return (
                         <Route
-                            key={i}
+                            key={route.path}
                             path={route.path}
                             exact={route.exact}
                             render={(props: PageTypes) => (
-                                <Guard {...guardOptions}>
+                                <Guard>
                                     <Layout>{renderContent(props)}</Layout>
                                 </Guard>
                             )}
                         />
-                    </Suspense>
-                );
-            })}
-        </Switch>
+                    );
+                })}
+            </Switch>
+        </Suspense>
     ) : null;
 
 function Routes() {
-    return <Router history={history}>{renderRoutes(routesConfig)}</Router>;
+    return (
+        <Router>
+            <Auth0ProviderWithHistory>
+                {renderRoutes(routesConfig)}
+            </Auth0ProviderWithHistory>
+        </Router>
+    );
 }
 
 export default Routes;
