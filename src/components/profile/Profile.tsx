@@ -1,8 +1,11 @@
-import { useAuth0 } from '@auth0/auth0-react';
+export interface ProfileProps {
+    user: {
+        name?: string;
+    };
+}
 
-const Profile = () => {
-    const { user, isAuthenticated } = useAuth0();
-    return <>{isAuthenticated && <div>{user?.name}</div>}</>;
+const Profile = ({ user }: ProfileProps) => {
+    return <div>{user?.name}</div>;
 };
 
 export default Profile;

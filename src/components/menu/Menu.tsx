@@ -1,6 +1,6 @@
-import { routesPaths } from 'common/routes/routeConfig';
 import { Link as RouteLink } from 'react-router-dom';
 import styled from 'styled-components';
+import { routesPaths } from 'common/routes/routeConfig';
 
 const MenuStyled = styled.nav`
     display: flex;
