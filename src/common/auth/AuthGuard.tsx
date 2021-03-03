@@ -18,7 +18,6 @@ export default function AuthGuard({ children }: AuthGuardProps): JSX.Element {
             });
         }
     }, [isLoading, isAuthenticated, loginWithRedirect]);
-    console.log(location);
     return isLoading ? (
         <h1>authorizing</h1>
     ) : !isAuthenticated ? (

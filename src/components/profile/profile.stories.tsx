@@ -11,7 +11,5 @@ const Template: Story<ProfileProps> = (args) => <Profile {...args} />;
 
 export const DefaultProfile = Template.bind({});
 DefaultProfile.args = {
-    user: {
-        name: 'Ersin Isimtekin',
-    },
+    name: 'Ersin Isimtekin',
 };

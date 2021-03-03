@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { Link as RouteLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { routesPaths } from 'common/routes/routeConfig';
@@ -23,4 +24,4 @@ const Menu = () => {
     );
 };
 
-export default Menu;
+export default memo(Menu);
