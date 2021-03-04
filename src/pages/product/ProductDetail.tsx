@@ -1,6 +1,5 @@
 import { useCallback, useEffect } from 'react';
 import { useParams } from 'react-router';
-
 export interface ProductDetailProps {
     children: JSX.Element;
 }
