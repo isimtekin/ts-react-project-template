@@ -1,7 +1,7 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
-import { AppState, Auth0Provider } from '@auth0/auth0-react';
+import { Auth0Provider } from '@auth0/auth0-react';
 import config from 'config';
+import useAppAuth0 from './useAppAuth0';
 
 interface Auth0ProviderWithHistoryProps {
     children: React.ReactNode;
@@ -9,11 +9,7 @@ interface Auth0ProviderWithHistoryProps {
 const Auth0ProviderWithHistory = ({
     children,
 }: Auth0ProviderWithHistoryProps) => {
-    const history = useHistory();
-
-    const onRedirectCallback = (appState: AppState) => {
-        history.push(appState?.targetUrl || window.location.pathname);
-    };
+    const { onRedirectCallback } = useAppAuth0();
 
     return (
         <Auth0Provider
