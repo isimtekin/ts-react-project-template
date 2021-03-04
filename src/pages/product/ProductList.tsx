@@ -1,3 +1,4 @@
+import usePageTitle from 'common/global-state/GlobalState';
 import { routesPaths } from 'common/routes/routeConfig';
 import { Link } from 'react-router-dom';
 
@@ -6,6 +7,8 @@ export interface ProductListProps {
 }
 
 const ProductList = () => {
+    usePageTitle('Product Title');
+
     return (
         <div>
             <Link

@@ -4,7 +4,6 @@ export interface ProfileProps {
 }
 
 const Profile = ({ name }: ProfileProps) => {
-    console.log('profile', 'render!');
     return <div>{name}</div>;
 };
 
