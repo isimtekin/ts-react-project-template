@@ -18,3 +18,5 @@
 - [Done] i18n next
 - Google Sheet i18n collection
 - [Done] Global UI State
+- [Done] Global UI State
+- [Done] Logger (Winston)
