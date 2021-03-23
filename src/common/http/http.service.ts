@@ -1,4 +1,5 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
+import { logger } from 'common/logger/logger.service';
 
 const axiosConfig: AxiosRequestConfig = {
     baseURL: 'api',
@@ -11,6 +12,18 @@ class HttpService {
     constructor() {
         this._client = axios.create(axiosConfig);
         this._mock = axios.create(axiosConfig);
+        this.applyInterceptor();
+    }
+
+    private applyInterceptor() {
+        this._mock.interceptors.request.use((config) => {
+            logger.debug([config.url, config.headers, config.data]);
+            return config;
+        });
+        this._mock.interceptors.response.use((config) => {
+            logger.debug([config.request.url, config.headers, config.data]);
+            return config;
+        });
     }
 
     public get client(): AxiosInstance {

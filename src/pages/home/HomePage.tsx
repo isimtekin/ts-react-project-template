@@ -13,14 +13,10 @@ const HomePage = () => {
     const { fetchBlocks, fetchBlockDetail } = useBlockApi();
 
     useCompMount(async () => {
-        fetchBlocks().then((e) => {
-            console.log(e);
-        });
+        fetchBlocks();
         fetchBlockDetail(
             '0000000000000000000136268a3201a6f2720abfd2cb669c86a36e8e10ad2303'
-        ).then((e) => {
-            console.log(e);
-        });
+        );
     });
     const { t: translate } = useTranslation();
     return <TestStyleComponent>{translate('message')}</TestStyleComponent>;

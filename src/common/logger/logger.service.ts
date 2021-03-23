@@ -36,11 +36,20 @@ class BrowserConsole extends TransportStream {
         console.group(`[${this.namespace}] - ${new Date().toISOString()}`);
         if (Object.getOwnPropertySymbols(logEntry).length === 2) {
             // @ts-ignore
-            console[mappedMethod](this.preMessage(level), message);
+            if (Array.isArray(message)) {
+                message.forEach((messageItem) => {
+                    // @ts-ignore
+                    console[mappedMethod](this.preMessage(level), messageItem);
+                });
+            } else {
+                // @ts-ignore
+                console[mappedMethod](this.preMessage(level), message);
+            }
         } else {
             // @ts-ignore
             let args = logEntry[Object.getOwnPropertySymbols(logEntry)[1]];
             args = args.length >= 1 ? args[0] : args;
+
             if (args)
                 // @ts-ignore
                 console[mappedMethod](this.preMessage(level), message, args);

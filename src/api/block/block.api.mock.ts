@@ -5,6 +5,5 @@ httpMock
     .reply(200, [{ name: 'Ersin' }, { name: 'Isimtekin' }]);
 
 httpMock.onGet(/\/rawblock\/\d+/).reply((config) => {
-    console.log(config);
     return [200, { id: '0fdbe681-0cc6-4702-a9e3-dac155fe25c5' }];
 });
