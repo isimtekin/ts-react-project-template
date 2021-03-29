@@ -16,7 +16,7 @@
 - [Done] Http Service (Axios)
 - [Done] Configuration Eslint/Pretierrc
 - [Done] i18n next
-- Google Sheet i18n collection
+- [Done] [Google Sheet](https://docs.google.com/spreadsheets/d/1WMWpSX5AGMG63q5QzxwnNsxLreaGucnVqIiTyf4uRtw/edit#gid=0) i18n collection
 - [Done] Global UI State
 - [Done] Global UI State
 - [Done] Logger (Winston)

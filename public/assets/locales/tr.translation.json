@@ -1,0 +1,10 @@
+{
+  "common": {
+    "welcome": "Hosgeldiniz"
+  },
+  "error": {
+    "global": {
+      "notFound": "Sayfa Bulunamadi"
+    }
+  }
+}

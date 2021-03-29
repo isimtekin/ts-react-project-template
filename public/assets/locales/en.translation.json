@@ -1,6 +1,10 @@
 {
-    "message": "Welcome to EI Web UI Component",
-    "error": {
-        "notFoundPage": "not found page!"
+  "common": {
+    "welcome": "Welcome"
+  },
+  "error": {
+    "global": {
+      "notFound": "Not Found Page!"
     }
+  }
 }
