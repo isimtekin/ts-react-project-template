@@ -4,8 +4,6 @@ const jsonfile = require('jsonfile');
 const { GoogleSpreadsheet } = require('google-spreadsheet');
 const ora = require('ora');
 
-const langs = ['tr', 'en'];
-
 const credential = {
     googleSheetId: process.env.GOOGLE_SHEET_CLIENT_ID,
     client_email: process.env.GOOGLE_SHEET_CLIENT_EMAIL,
@@ -28,32 +26,58 @@ function asyncForEach(lineItems, asyncIterator) {
     });
 }
 
-const a = async function () {
-    const spinner = ora();
-    const doc = new GoogleSpreadsheet(credential.googleSheetId);
+const doc = new GoogleSpreadsheet(credential.googleSheetId);
 
+const auth = async () => {
+    const spinner = ora('authenticating...').start();
     doc.useServiceAccountAuth({
         client_email: credential.client_email,
         private_key: credential.private_key,
     });
-
     await doc.loadInfo();
+    spinner.succeed('authenticated!');
+};
+
+const getLangs = async () => {
+    const spinner = ora('fetching languages...').start();
+    let langs = [];
+
+    await asyncForEach(doc.sheetsByIndex, async (sheet) => {
+        if (sheet.title === 'langs') {
+            const rows = await sheet.getRows();
+            langs = rows.map((row) => row.key);
+        }
+    });
+    spinner.succeed(`fetched languages: ${langs.join(', ')}`);
+    return langs;
+};
+
+const generateI18n = async function () {
+    const spinner = ora();
+
+    await auth();
+    const langs = await getLangs();
 
     const i18n = {};
 
     await asyncForEach(langs, async (lang) => {
         spinner.render();
-        const spinneri = ora(` ${lang}-i18n is generating...`).start();
+
+        const spinneri18n = ora(`${lang}-i18n is generating...`).start();
 
         _.set(i18n, [lang], {});
 
         await asyncForEach(doc.sheetsByIndex, async (sheet) => {
+            if (!sheet.title.startsWith('i18n:')) {
+                return;
+            }
             const i18nBase = sheet.title.replace('i18n:', '');
             _.set(i18n, [lang, i18nBase], {});
             const rows = await sheet.getRows();
 
             await asyncForEach(rows, async (row) => {
-                _.set(i18n, [lang, i18nBase, ...row.key.split('.')], row[lang]);
+                const path = [lang, i18nBase, ...row.key.split('.')];
+                _.set(i18n, path, row[lang] || `${lang}.${path.join('.')}`);
             });
         });
         await jsonfile.writeFileSync(
@@ -64,9 +88,9 @@ const a = async function () {
                 if (err) console.error(err);
             }
         );
-        spinneri.succeed();
+        spinneri18n.succeed(`${lang}-i18n is generated!`);
     });
     spinner.succeed('i18n generated!');
 };
 
-a();
+generateI18n();

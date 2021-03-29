@@ -1,0 +1,10 @@
+{
+  "common": {
+    "welcome": "de.de.common.welcome"
+  },
+  "error": {
+    "global": {
+      "notFound": "de.de.error.global.notFound"
+    }
+  }
+}
