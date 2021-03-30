@@ -12,7 +12,7 @@
 - Unit Test (Enzyme)
 - Dynamic Theme based on User
 - [Done] Mock Http Request
-- Dockerizing
+- [Done]Dockerizing
 - [Done] Http Service (Axios)
 - [Done] Configuration Eslint/Pretierrc
 - [Done] i18n next
