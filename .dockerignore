@@ -1,0 +1,25 @@
+
+# dependencies
+/node_modules
+/.github
+/.storybook
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+.git
+.gitignore
+Dockerfile
+.DS_Store
+.gitignore
+README.md
+env.*
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
