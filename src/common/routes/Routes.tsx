@@ -20,7 +20,7 @@ const renderRoutes = (routes: IRoute[]) =>
     routes ? (
         <Suspense fallback={<div>loading...</div>}>
             <Switch>
-                {routes.map((route, i) => {
+                {routes.map((route) => {
                     const Guard = route.guard || Fragment;
                     const Layout = route.layout || Fragment;
                     const Component = route.component || Fragment;

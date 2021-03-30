@@ -1,5 +1,5 @@
 import useBlockApi from 'api/block/block.api';
-import useCompMount from 'common/hooks/useCompMount';
+import { useCompMount } from '@ei-ui-lib/hooks';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 

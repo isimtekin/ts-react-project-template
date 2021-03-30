@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-export default function useCompMount(mounted?: Function, unmounted?: Function) {
+export function useCompMount(mounted?: Function, unmounted?: Function) {
     useEffect(() => {
         if (mounted) {
             mounted();

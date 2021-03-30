@@ -27,9 +27,9 @@
         "winston-transport": "4.4.0"
     },
     "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build",
-        "test": "react-scripts test",
+        "start": "craco start",
+        "build": "craco build",
+        "test": "craco test",
         "eject": "react-scripts eject",
         "lint": "eslint ./src",
         "lint:fix": "eslint ./src --fix",
@@ -75,6 +75,9 @@
         "@typescript-eslint/parser": "4.19.0",
         "babel-eslint": "10.1.0",
         "babel-loader": "8.1.0",
+        "craco": "0.0.3",
+        "craco-alias": "2.2.0",
+        "dotenv": "8.2.0",
         "eslint": "7.22.0",
         "eslint-config-prettier": "8.1.0",
         "eslint-config-react-app": "6.0.0",
@@ -84,12 +87,12 @@
         "eslint-plugin-prettier": "3.3.1",
         "eslint-plugin-react": "7.23.0",
         "eslint-plugin-react-hooks": "4.2.0",
-        "http-proxy-middleware": "1.0.6",
-        "dotenv": "8.2.0",
         "google-spreadsheet": "3.1.15",
-        "ora": "5.4.0",
+        "http-proxy-middleware": "1.0.6",
         "jsonfile": "6.1.0",
+        "ora": "5.4.0",
         "prettier": "2.2.1",
-        "react-is": "^17.0.2"
+        "react-is": "17.0.2",
+        "tsconfig-paths-webpack-plugin": "3.5.1"
     }
 }

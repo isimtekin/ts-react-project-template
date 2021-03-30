@@ -9,7 +9,7 @@ import { useEffect, MutableRefObject } from 'react';
  * @param {Function} callback
  */
 
-export default function useOutsideClick(
+export function useOutsideClick(
     ref: MutableRefObject<any>,
     callback: () => void
 ) {

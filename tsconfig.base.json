@@ -1,0 +1,31 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "lib": ["dom", "dom.iterable", "esnext"],
+        "baseUrl": "./src",
+        "allowJs": true,
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "strict": true,
+        "strictNullChecks": true,
+        "noImplicitAny": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "allowUnreachableCode": false,
+        "forceConsistentCasingInFileNames": true,
+        "noFallthroughCasesInSwitch": true,
+        "module": "esnext",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "isolatedModules": false,
+        "noEmit": false,
+        "jsx": "react-jsx",
+        "paths": {
+            "@ei-ui-lib/hooks/*": ["lib/hooks/*"],
+            "@ei-ui-lib/hooks": ["lib/hooks/index"],
+            "@ei-ui-lib/components/*": ["lib/components/*"]
+        }
+    },
+    "include": ["./src"]
+}

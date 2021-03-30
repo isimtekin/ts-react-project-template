@@ -1,5 +1,5 @@
 import { useAuth0 } from '@auth0/auth0-react';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import useAppAuth0 from './useAppAuth0';
 
 export interface AuthGuardProps {

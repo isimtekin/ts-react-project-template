@@ -1,6 +1,6 @@
 import { useHistory, useLocation } from 'react-router-dom';
 
-export default function useURLSearchParams() {
+export function useURLSearchParams() {
     const { search, pathname } = useLocation();
     const history = useHistory();
     const searchParams = new URLSearchParams(search);

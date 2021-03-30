@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 
-export default function useMergeState<T>(
+export function useMergeState<T>(
     initialState: T | (() => T)
 ): [T, (props: T | ((arg0: T) => T)) => void] {
     const [state, setState] = useState(initialState);
