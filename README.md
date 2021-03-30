@@ -18,5 +18,4 @@
 - [Done] i18n next
 - [Done] [Google Sheet](https://docs.google.com/spreadsheets/d/1WMWpSX5AGMG63q5QzxwnNsxLreaGucnVqIiTyf4uRtw/edit#gid=0) i18n collection
 - [Done] Global UI State
-- [Done] Global UI State
 - [Done] Logger (Winston)
