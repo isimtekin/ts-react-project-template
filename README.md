@@ -5,7 +5,7 @@
 - [Done] Auth0
 - [Done] Storybook
 - [Done] Helmet
-- Dynamic ChangeList
+- Auto ChangeList
 - Github CI
 - Github CD (AWS)
 - [Done] Custom Hook

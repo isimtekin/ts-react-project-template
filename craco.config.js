@@ -21,9 +21,10 @@ module.exports = {
                 source: 'tsconfig',
                 baseUrl: './src',
                 aliases: {
-                    '@ei-ui-lib/hooks': ['lib/hooks/index'],
-                    '@ei-ui-lib/hooks/*': ['lib/hooks/*'],
-                    '@ei-ui-lib/components/*': ['lib/components/*'],
+                    '@ei-ui-lib/hooks/*': ['@lib/hooks/*'],
+                    '@ei-ui-lib/hooks': ['@lib/hooks'],
+                    '@ei-ui-lib/components/*': ['@lib/components/*'],
+                    '@ei-ui-lib/components': ['@lib/components'],
                 },
                 tsConfigPath: './tsconfig.base.json',
             },

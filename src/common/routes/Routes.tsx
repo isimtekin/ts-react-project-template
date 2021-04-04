@@ -1,6 +1,6 @@
 import Auth0ProviderWithHistory from 'common/auth/Auth0ProviderWithHistory';
 import { HomePageProps } from 'pages/home/HomePage';
-import React, { Fragment, Suspense } from 'react';
+import { Fragment, Suspense } from 'react';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 
 import { routesConfig } from './routeConfig';

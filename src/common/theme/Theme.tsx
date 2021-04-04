@@ -1,40 +1,75 @@
-import React, { createContext, useState, useContext, useEffect } from 'react';
+import { createContext, useState, useContext, useMemo } from 'react';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
+import { createBreakpoint, createMap } from 'styled-components-breakpoint';
+import { Breakpoints } from 'types/styled';
 
-export const ThemeContext = createContext<Partial<any>>({});
+import { fonts } from './font';
+import { getColors, Colors } from './colors';
 
-const themeTypes = {
-    default: 'default',
+export enum ThemeType {
+    Light = 'light',
+    Dark = 'dark',
+}
+
+export type AppTheme = {
+    theme: {
+        fonts?: any;
+        colors: Colors;
+        breakpoints?: Breakpoints;
+        selectedTheme?: ThemeType;
+    };
+    handleChangeTheme: (theme: ThemeType) => void;
 };
+const breakpoints = {
+    mobile: 0,
+    tablet: 768,
+    desktop: 1200,
+};
+
+export const ThemeContext = createContext<AppTheme>({
+    theme: {
+        breakpoints,
+        colors: getColors(),
+    },
+    handleChangeTheme: () => {},
+});
 
 interface IThemeProviderProps {
     children: JSX.Element;
 }
 
+// https://www.npmjs.com/package/styled-components-breakpoint
+export const responsive = createBreakpoint(breakpoints);
+export const responsiveMap = createMap(breakpoints);
+
 export default function ThemeProvider({ children }: IThemeProviderProps) {
-    const [themeType, setThemeType] = useState(themeTypes.default);
+    const [selectedTheme, setSelectedTheme] = useState<ThemeType>(
+        ThemeType.Light
+    );
 
-    const getTheme = () => {
-        return {};
-    };
-    const handleChange = () => {
-        setThemeType(themeTypes.default);
+    const handleChangeTheme = (theme: ThemeType) => {
+        setSelectedTheme(theme);
     };
 
-    const theme = getTheme();
+    const theme = useMemo(
+        () => ({
+            fonts,
+            colors: getColors(selectedTheme),
+            breakpoints,
+            selectedTheme,
+        }),
+        [selectedTheme]
+    );
 
     return (
-        <ThemeContext.Provider value={{ theme, themeType, handleChange }}>
+        <ThemeContext.Provider value={{ theme, handleChangeTheme }}>
             <StyledThemeProvider theme={theme}>{children}</StyledThemeProvider>
         </ThemeContext.Provider>
     );
 }
 
 export function useTheme() {
-    const { theme } = useContext(ThemeContext);
-    const [projectTheme, setProjectTheme] = useState(theme);
-    useEffect(() => {
-        setProjectTheme(theme);
-    }, [theme]);
-    return { theme: projectTheme };
+    const { theme, handleChangeTheme: changeTheme } = useContext(ThemeContext);
+
+    return { theme, changeTheme };
 }

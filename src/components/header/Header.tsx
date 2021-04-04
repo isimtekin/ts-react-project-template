@@ -1,5 +1,7 @@
 import { useAuth0 } from '@auth0/auth0-react';
-import { Grid } from 'components/grid/Grid';
+import { Dropdown } from '@ei-ui-lib/components';
+import { Grid } from '@ei-ui-lib/components/grid/Grid';
+import { ThemeType, useTheme } from 'common/theme/Theme';
 import Menu from 'components/menu/Menu';
 import Profile from 'components/profile/Profile';
 import styled from 'styled-components';
@@ -14,15 +16,32 @@ export interface HeaderProps {}
 
 const Header = () => {
     const { logout, isAuthenticated, user } = useAuth0();
+    const { changeTheme } = useTheme();
+
+    const handleChangeTheme = (theme: ThemeType) => {
+        changeTheme(theme);
+    };
 
     return (
         <HeaderStyled>
-            <Grid container justify="space-between">
-                <Grid item>
+            <Grid fluid>
+                <Grid item desktop={11}>
                     <Menu />
                 </Grid>
                 <Grid item>
-                    <Grid container>
+                    <Dropdown
+                        onSelect={handleChangeTheme}
+                        options={[
+                            { label: 'Default', key: 'default' },
+                            { label: 'Dark', key: 'dark' },
+                            { label: 'Light', key: 'light' },
+                        ]}
+                    >
+                        <span>Select Theme</span>
+                    </Dropdown>
+                </Grid>
+                <Grid item desktop={1}>
+                    <Grid row>
                         <Grid item>
                             <Profile name={user?.name} />
                         </Grid>
