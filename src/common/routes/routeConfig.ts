@@ -7,11 +7,12 @@ import ProductDashboard from 'pages/product/ProductDashboard';
 import ProductDetail from 'pages/product/ProductDetail';
 import ProductList from 'pages/product/ProductList';
 import HomePage from '../../pages/home/HomePage';
+import DashboardPage from '../../pages/dashboard/Dashboard';
 import { IRoute } from './Routes';
 
 export const routesPaths = {
     root: '/',
-    dashboard: '/dashbord',
+    dashboard: '/dashboard',
     product: '/product',
     productList: '/product/list',
     productDetail: '/product/detail/:id',
@@ -28,7 +29,7 @@ export const routesConfig: IRoute[] = [
         exact: true,
         path: routesPaths.dashboard,
         layout: PrivateLayout,
-        component: HomePage,
+        component: DashboardPage,
     },
     {
         path: routesPaths.product,

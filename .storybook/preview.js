@@ -1,4 +1,6 @@
 import { MINIMAL_VIEWPORTS } from '@storybook/addon-viewport';
+import { GlobalStyle } from '../src/common/theme/GlobalStyle';
+import ThemeProvider from '../src/common/theme/Theme';
 const customViewports = {
     iPhone: {
         name: 'iPhone 6/7/8',
@@ -50,7 +52,10 @@ export const decorators = [
                     overflow: 'auto',
                 }}
             >
-                <Story />
+                <ThemeProvider>
+                    <GlobalStyle />
+                    <Story />
+                </ThemeProvider>
             </div>
         </>
     ),

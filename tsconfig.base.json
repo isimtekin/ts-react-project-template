@@ -22,10 +22,12 @@
         "noEmit": false,
         "jsx": "react-jsx",
         "paths": {
-            "@ei-ui-lib/hooks/*": ["lib/hooks/*"],
-            "@ei-ui-lib/hooks": ["lib/hooks/index"],
-            "@ei-ui-lib/components/*": ["lib/components/*"]
-        }
+            "@ei-ui-lib/hooks/*": ["@lib/hooks/*"],
+            "@ei-ui-lib/hooks": ["@lib/hooks"],
+            "@ei-ui-lib/components/*": ["@lib/components/*"],
+            "@ei-ui-lib/components": ["@lib/components"]
+        },
+        "typeRoots": ["./src/types/*"]
     },
-    "include": ["./src"]
+    "include": ["src"]
 }

@@ -1,6 +1,5 @@
 import Header from 'components/header/Header';
-import React from 'react';
-
+import 'styled-components/macro';
 export interface PrivateLayoutProps {
     children: JSX.Element;
 }
