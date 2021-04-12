@@ -1,17 +1,17 @@
 // https://maketintsandshades.com/
-
 import { AppTheme, ThemeType } from './Theme';
 
 export interface ColorTone {
-    dark: string;
-    medium: string;
-    normal: string;
-    light: string;
-    thin: string;
+    dark?: string;
+    medium?: string;
+    normal?: string;
+    light?: string;
+    thin?: string;
 }
 
 export enum BaseColor {
     black = 'black',
+    white = 'white',
     grey = 'grey',
     green = 'green',
     red = 'red',
@@ -23,6 +23,7 @@ export enum BaseColor {
 // export type Palette = PartialRecord<BaseColor, ColorTone>;
 export interface Palette {
     [BaseColor.black]: ColorTone;
+    [BaseColor.white]: ColorTone;
     [BaseColor.blue]: ColorTone;
     [BaseColor.grey]: ColorTone;
     [BaseColor.red]: ColorTone;
@@ -38,6 +39,13 @@ const mainColors: Palette = {
         normal: '#3B3B3B',
         light: '#555',
         thin: '#545353',
+    },
+    white: {
+        dark: '#f5f5f5',
+        medium: '#F8F8FF',
+        normal: '#fdfcfa', // wista
+        light: 'fffafa', // Snow White
+        thin: '#ffffff', // natural white
     },
     grey: {
         dark: '#6e6e6e',
@@ -99,11 +107,17 @@ export interface Colors {
 interface ThemeColors {
     textColor: ColorTone;
     bgColor: ColorTone;
+    headerBg: string;
+    headerBorder: string;
+    headerMenuItem: string;
 }
 
 const defaultTheme = {
     textColor: mainColors.black,
     bgColor: mainColors.grey,
+    headerBg: mainColors.grey.thin || '',
+    headerBorder: mainColors.grey.thin || '',
+    headerMenuItem: mainColors.black.normal || '',
 };
 
 const themes: PartialRecord<ThemeType, ThemeColors> = {
@@ -113,10 +127,16 @@ const themes: PartialRecord<ThemeType, ThemeColors> = {
             ...mainColors.grey,
             normal: 'white',
         },
+        headerBg: mainColors.white?.thin || '',
+        headerBorder: mainColors.grey.thin || '',
+        headerMenuItem: mainColors.black.normal || '',
     },
     dark: {
         textColor: mainColors.black,
         bgColor: mainColors.grey,
+        headerBg: mainColors.grey.dark || '',
+        headerBorder: mainColors.grey.dark || '',
+        headerMenuItem: mainColors.white.normal || '',
     },
 };
 

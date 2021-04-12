@@ -1,7 +1,8 @@
 import { useAuth0 } from '@auth0/auth0-react';
 import { Dropdown } from '@ei-ui-lib/components';
 import { Grid } from '@ei-ui-lib/components/grid/Grid';
-import { ThemeType, useTheme } from 'common/theme/Theme';
+import { getThemeColor } from 'common/theme/colors';
+import { AppTheme, ThemeType, useTheme } from 'common/theme/Theme';
 import Menu from 'components/menu/Menu';
 import Profile from 'components/profile/Profile';
 import styled from 'styled-components';
@@ -9,7 +10,9 @@ import styled from 'styled-components';
 const HeaderStyled = styled.header`
     display: flex;
     height: 50px;
-    background: #dadada;
+    background: ${(props: AppTheme) => getThemeColor(props).headerBg};
+    border-bottom: 1px solid
+        ${(props: AppTheme) => getThemeColor(props).headerBorder};
 `;
 
 export interface HeaderProps {}
