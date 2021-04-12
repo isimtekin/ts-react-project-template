@@ -4,7 +4,12 @@ type GridContentAlignment =
     | 'flex-start'
     | 'flex-end'
     | 'space-between'
-    | 'space-around';
+    | 'space-around'
+    | 'left'
+    | 'right'
+    | 'center';
+
+type GridAlignment = 'left' | 'right' | 'center';
 
 type GridJustification =
     | 'flex-start'

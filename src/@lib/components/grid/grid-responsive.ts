@@ -34,27 +34,33 @@ export function applyGridResponsiveStyle(props: GridProps & AppTheme) {
         }
 
         if (props.desktop) {
-            styles = styles.concat(
-                responsive('desktop')`width: calc(100% / ${
-                    12 / props.desktop
-                });`
-            );
+            if (props.desktop === 'hidden') {
+                styles = styles.concat(responsive('desktop')`display: none;`);
+            } else {
+                styles = styles.concat(
+                    responsive('desktop')`width: calc(100% / ${
+                        12 / props.desktop
+                    });`
+                );
+            }
         }
 
         if (props.tablet) {
-            styles = [
-                ...responsive('tablet')`
-            width: calc(100% / ${12 / props.tablet});
-          `,
-            ];
+            if (props.tablet === 'hidden') {
+                styles = styles.concat(responsive('desktop')`display: none;`);
+            } else {
+                styles = styles.concat(responsive('tablet')`
+            width: calc(100% / ${12 / props.tablet});`);
+            }
         }
 
         if (props.mobile) {
-            styles = [
-                ...responsive('mobile')`
-            width: calc(100% / ${12 / props.mobile});
-          `,
-            ];
+            if (props.mobile === 'hidden') {
+                styles = styles.concat(responsive('mobile')`display: none;`);
+            } else {
+                styles = styles.concat(responsive('mobile')`
+            width: calc(100% / ${12 / props.mobile});`);
+            }
         }
 
         if (!props.desktop && !props.tablet && !props.mobile && !props.size) {

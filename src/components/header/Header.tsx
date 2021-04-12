@@ -24,15 +24,14 @@ const Header = () => {
 
     return (
         <HeaderStyled>
-            <Grid fluid>
-                <Grid item desktop={11}>
+            <Grid fluid between>
+                <Grid item desktop={6}>
                     <Menu />
                 </Grid>
-                <Grid item>
+                <Grid item align="right" desktop={1}>
                     <Dropdown
                         onSelect={handleChangeTheme}
                         options={[
-                            { label: 'Default', key: 'default' },
                             { label: 'Dark', key: 'dark' },
                             { label: 'Light', key: 'light' },
                         ]}
@@ -40,7 +39,7 @@ const Header = () => {
                         <span>Select Theme</span>
                     </Dropdown>
                 </Grid>
-                <Grid item desktop={1}>
+                <Grid item desktop={'hidden'}>
                     <Grid row>
                         <Grid item>
                             <Profile name={user?.name} />
