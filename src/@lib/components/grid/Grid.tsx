@@ -1,8 +1,4 @@
-import MUIGrid from '@material-ui/core/Grid';
-import MUIBox from '@material-ui/core/Box';
-import MUIHidden from '@material-ui/core/Hidden';
 import styled from 'styled-components';
-
 import { applyGridResponsiveStyle } from './grid-responsive';
 import { AppTheme } from 'common/theme/Theme';
 
@@ -107,7 +103,3 @@ export function Grid({ children, className = '', ...restProps }: GridProps) {
         </GridStyled>
     );
 }
-
-export const GridA = MUIGrid;
-export const Box = MUIBox;
-export const Hidden = MUIHidden;
