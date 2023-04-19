@@ -23,7 +23,7 @@ const Menu = () => {
                 <RouteLink to={routesPaths.dashboard}>Dashboard</RouteLink>
             </MenuItemStyled>
             <MenuItemStyled>
-                <RouteLink to={routesPaths.product}>Product</RouteLink>
+                <RouteLink to={routesPaths.product}>Productt</RouteLink>
             </MenuItemStyled>
         </MenuStyled>
     );
